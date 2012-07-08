@@ -1,0 +1,75 @@
+!|scenario |one hour   |parkingLot|costs     |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||12:59||AM|costs|@costs|
+
+!|scenario |one and a half hour|parkingLot|cost      |costs                                              |
+|parking in|@parkingLot        |from      |05/04/2010||12:00||AM|until|05/04/2010||01:29||AM|costs|@costs|
+
+!|scenario |three hours|parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||03:00||AM|costs|@costs|
+
+!|scenario |four hours |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||04:00||AM|costs|@costs|
+
+!|scenario |five hours |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||05:00||AM|costs|@costs|
+
+!|scenario |six hours  |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||06:00||AM|costs|@costs|
+
+!|scenario |seven hours|parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/04/2010||07:00||AM|costs|@costs|
+
+!|scenario |twelve and a half hour|parkingLot|cost      |costs                                              |
+|parking in|@parkingLot           |from      |05/04/2010||12:00||AM|until|05/04/2010||12:30||PM|costs|@costs|
+
+!|scenario |first day  |parkingLot|costs     |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/05/2010||12:00||AM|costs|@costs|
+
+!|scenario |four days  |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/08/2010||12:00||AM|costs|@costs|
+
+!|scenario |five days  |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/09/2010||12:00||AM|costs|@costs|
+
+!|scenario |six days   |parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/10/2010||12:00||AM|costs|@costs|
+
+!|scenario |first week |parkingLot|costs     |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/11/2010||12:00||AM|costs|@costs|
+
+!|scenario |three weeks|parkingLot|cost      |costs                                              |
+|parking in|@parkingLot|from      |05/04/2010||12:00||AM|until|05/25/2010||12:00||AM|costs|@costs|
+
+----
+!|scenario          |parking in   |parkingLot|from         |startingDate||startingTime||startingAmPm|until|leavingDate||leavingTime||leavingAmPm|costs|costs|
+|select parking lot |@parkingLot                                                                                                                            |
+|enter starting date|@startingDate|and time  |@startingTime|            |@startingAmPm                                                                      |
+|enter leaving date |@leavingDate |and time  |@leavingTime |            |@leavingAmPm                                                                       |
+|click              |Submit       |and wait for page to load                                                                                                |
+|verify costs       |@costs                                                                                                                                 |
+
+----
+!define COST_ITEM {xpath=//tr[td/div[@class='SubHead'] = 'estimated Parking costs']/td/span/b}
+
+!|scenario     |verify costs|costs                |
+|$ACTUAL_COSTS=|get text    |${COST_ITEM}         |
+|check         |echo        |$ACTUAL_COSTS||@costs|
+
+!define PAGE_LOAD_TIMEOUT {5000}
+
+!|scenario            |click|button|and wait for page to load|
+|click                |@button                               |
+|wait for page to load|${PAGE_LOAD_TIMEOUT}                  |
+
+!|scenario   |enter starting date   |date   |and time  |time  |  |ampm  |
+|type        |StartingTime          |       |@time                      |
+|make checked|xpath=//input[@name='StartingTimeAMPM' and @value='@ampm']|
+|type        |StartingDate          |       |@date                      |
+
+!|scenario   |enter leaving date   |date   |and time  |time  |  |ampm  |
+|type        |LeavingTime          |       |@time                      |
+|make checked|xpath=//input[@name='LeavingTimeAMPM' and @value='@ampm']|
+|type        |LeavingDate          |       |@date                      |
+
+!|scenario|select parking lot|parkingLot  |
+|select   |ParkingLot        ||@parkingLot|
