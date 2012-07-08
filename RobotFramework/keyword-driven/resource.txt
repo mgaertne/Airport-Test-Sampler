@@ -1,0 +1,41 @@
+*** Settings ***
+
+Documentation  A resource file containing the ParkCalc app specific keywords and variables for keyword-driven tests that create our own domain specific language. Also SeleniumLibrary itself is imported here so that tests only need to import this resource file.
+
+Library        SeleniumLibrary
+
+
+*** Variables ***
+
+${BROWSER}       firefox
+${DELAY}         0
+${PARKCALC URL}  http://www.shino.de/parkcalc/
+${COST_ITEM}     xpath=//tr[td/div[@class='SubHead'] = 'estimated Parking costs']/td/span/b
+${PAGE_TITLE}    Parking Cost Calculator
+
+*** Keywords ***
+
+Open ParkCalc
+    Open Browser  ${PARKCALC URL}  ${BROWSER}
+    Set Selenium Speed  ${DELAY}
+    Title Should Be  ${PAGE_TITLE}
+
+Input Parking Lot  [Arguments]  ${lot}
+    Select From List  ParkingLot  ${lot}
+
+Input Starting Date  [Arguments]  ${date}  ${time}  ${ampm}
+    Input Text  StartingDate  ${date}
+    Input Text  StartingTime  ${time}
+    Select Radio Button  StartingTimeAMPM  ${ampm}
+
+Input Leaving Date  [Arguments]  ${date}  ${time}  ${ampm}
+    Input Text  LeavingDate  ${date}
+    Input Text  LeavingTime  ${time}
+    Select Radio Button  LeavingTimeAMPM  ${ampm}
+
+Calculated Cost Should Be  [Arguments]  ${cost}
+    Click Button  Submit
+    ${actual} =  Get Text  ${COST_ITEM}
+    Log  Actual costs: ${actual}
+    Page Should Contain  ${cost}
+
