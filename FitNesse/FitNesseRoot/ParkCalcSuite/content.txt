@@ -1,9 +1,10 @@
 A [[!-ParkCalc-!][http://www.shino.de/ParkCalc]] test suite using Slim.
-
 ----
-!define TEST_SYSTEM {slim}
-!*< Classpath setup
-!path lib/*.jar
-*!
-
 !contents -R2 -g -p -f -h
+
+!*< Test setup
+!define TEST_SYSTEM {slim}
+
+!path lib/*.jar
+!path classes
+*!
