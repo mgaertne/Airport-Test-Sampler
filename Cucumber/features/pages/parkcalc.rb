@@ -2,6 +2,7 @@
 class ParkCalcPage
 
   @@lotIdentifier = 'ParkingLot'
+  @@optionIdentifier = 'option'
   @@startingPrefix = 'Starting'
   @@leavingPrefix = 'Leaving'
   @@dateTemplate = "%sDate"
@@ -40,15 +41,19 @@ class ParkCalcPage
     'one week, two days' => ['05/04/2010', '12:00', 'AM', '05/13/2010', '12:00', 'AM'],
     'three weeks' => ['05/04/2010', '12:00', 'AM', '05/25/2010', '12:00', 'AM']
   }
-  attr :page
 
-  def initialize(page_handle)
-    @page = page_handle
-    @page.open '/parkcalc'
+  attr :driver
+
+  def initialize(driver)
+    @driver = driver
+    @driver.navigate.to 'http://www.shino.de/parkcalc/'
   end
 
   def select(parking_lot)
-    @page.select @@lotIdentifier, parking_lot
+    selector = @driver.find_element(:name => @@lotIdentifier)
+    selector.find_elements(:tag_name => @@optionIdentifier).find do | option |
+      option.text == parking_lot
+    end.click
   end
 
   def enter_parking_duration(duration)
@@ -58,9 +63,15 @@ class ParkCalcPage
   end
 
   def fill_in_date_and_time_for(formPrefix, date, time, ampm)
-    @page.type @@dateTemplate % formPrefix, date
-    @page.type @@timeTemplate % formPrefix, time
-    @page.click @@amPMRadioButtonTemplate % [ formPrefix, ampm ]
+    enter_into_field :name, @@dateTemplate % formPrefix, date
+    enter_into_field :name, @@timeTemplate % formPrefix, time
+    @driver.find_element(:xpath, @@amPMRadioButtonTemplate % [formPrefix, ampm]).click
+  end
+
+  def enter_into_field(how, what, value)
+    element = @driver.find_element(how, what)
+    element.clear
+    element.send_keys(value)
   end
 
   def parking_costs
@@ -69,12 +80,11 @@ class ParkCalcPage
   end
 
   def calculate_parking_costs
-    @page.click @@calculateButtonIdentifier
-    @page.wait_for_page_to_load 10000
+    @driver.find_element(:name => @@calculateButtonIdentifier).click
   end
 
   def get_parking_costs_from_page
-    @page.get_text @@costElementLocation
+    @driver.find_element(:xpath => @@costElementLocation).text
   end
 
 end
