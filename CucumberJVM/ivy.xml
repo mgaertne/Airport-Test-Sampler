@@ -1,0 +1,12 @@
+<ivy-module version="2.0">
+  <info organisation="cukes.info" module="java-example"/>
+  <dependencies>
+    <dependency org="info.cukes" name="cucumber-java" rev="1.1.4"/>
+    <dependency org="info.cukes" name="cucumber-junit" rev="1.1.4"/>
+    <dependency org="junit" name="junit" rev="4.11"/>
+    <dependency org="org.hamcrest" name="hamcrest-core" rev="1.3" />
+    <dependency org="org.hamcrest" name="hamcrest-library" rev="1.3" />
+    <dependency org="org.seleniumhq.selenium" name="selenium-java" rev="2.35.0" />
+    <dependency org="org.seleniumhq.selenium" name="selenium-firefox-driver" rev="2.35.0" />
+  </dependencies>
+</ivy-module>
