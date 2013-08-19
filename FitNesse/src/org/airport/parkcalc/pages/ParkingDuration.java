@@ -1,4 +1,4 @@
-package org.airport.parkcalc.helper;
+package org.airport.parkcalc.pages;
 
 import java.util.Calendar;
 import java.util.Date;

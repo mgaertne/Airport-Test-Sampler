@@ -1,10 +1,10 @@
 package org.airport.parkcalc.fixtures;
 import static org.airport.parkcalc.helper.BrowserDriver.driver;
-import static org.airport.parkcalc.helper.ParkingDuration.durationFor;
+import static org.airport.parkcalc.pages.ParkingDuration.durationFor;
 import static org.openqa.selenium.support.PageFactory.initElements;
 
-import org.airport.parkcalc.helper.ParkingDuration;
 import org.airport.parkcalc.pages.ParkCalcPage;
+import org.airport.parkcalc.pages.ParkingDuration;
 
 public class ParkingCostsFor {
 
