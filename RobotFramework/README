@@ -1,0 +1,9 @@
+Robot Framework is a keyword-driven functional test automation tool that allows you to express tests in natural language. Robot Framework also has a number of keywords built in and even more keywords available through publicly available libraries, like the Selenium Library. Or you can create your own custom libraries easily in in Python or Java.
+
+For more information on Robot Framework, see http://www.robotframework.org/
+
+To execute these tests:
+
+1. Install Robot Framework (see http://www.robotframework.org for the most recent download)
+2. Install the Robot Framework Selenium2Library (see https://github.com/rtomac/robotframework-selenium2library)
+3. execute the following command: pybot economy.txt long-term-garage.txt long-term-surface.txt short-term.txt valet.txt
