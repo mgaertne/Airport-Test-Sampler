@@ -1,0 +1,16 @@
+*** Test Cases ***
+Short-Term Parking  [Template]  Short-Term Parking
+	@{FOR_THIRTY_MINUTES}				$ 2.00
+	@{FOR_ONE_HOUR}						$ 2.00
+	@{FOR_THREE_HOURS_THIRTY_MINUTES}	$ 7.00
+	@{FOR_TWELVE_HOURS_THIRTY_MINUTES}	$ 24.00
+	@{FOR_ONE_DAY_THIRTY_MINUTES}		$ 25.00
+	@{FOR_ONE_DAY_ONE_HOUR}				$ 26.00
+	
+*** Settings ***
+Documentation  Short-term parking tests for ParkCalc
+
+Resource  parkcalc.txt
+
+Suite Setup  Open Park Calc
+Suite Teardown  Close All Browsers

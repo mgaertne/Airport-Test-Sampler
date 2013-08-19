@@ -1,0 +1,24 @@
+*** Test Cases ***
+Economy Parking  [Template]  Economy Parking
+	@{FOR_THIRTY_MINUTES}				$ 2.00
+	@{FOR_ONE_HOUR}						$ 2.00
+	@{FOR_FOUR_HOURS}					$ 8.00
+	@{FOR_FIVE_HOURS}					$ 9.00
+	@{FOR_SIX_HOURS}					$ 9.00
+	@{FOR_TWENTYFOUR_HOURS}				$ 9.00
+	@{FOR_ONE_DAY_ONE_HOUR}				$ 11.00
+	@{FOR_ONE_DAY_THREE_HOURS}			$ 15.00
+	@{FOR_ONE_DAY_FIVE_HOURS}			$ 18.00
+	@{FOR_SIX_DAYS}						$ 54.00
+	@{FOR_SIX_DAYS_ONE_HOUR}			$ 54.00
+	@{FOR_SEVEN_DAYS}					$ 54.00
+	@{FOR_ONE_WEEK_TWO_DAYS}			$ 72.00
+	@{FOR_THREE_WEEKS}					$ 162.00
+	
+*** Settings ***
+Documentation  Economy parking tests for ParkCalc
+
+Resource  parkcalc.txt
+
+Suite Setup  Open Park Calc
+Suite Teardown  Close All Browsers

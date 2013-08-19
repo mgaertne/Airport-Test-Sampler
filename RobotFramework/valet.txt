@@ -1,0 +1,19 @@
+*** Test Cases ***
+Valet Parking  [Template]  Valet Parking
+	@{FOR_THIRTY_MINUTES}			$ 12.00
+	@{FOR_THREE_HOURS}				$ 12.00
+	@{FOR_FIVE_HOURS}				$ 12.00
+	@{FOR_FIVE_HOURS_ONE_MINUTE}	$ 18.00
+	@{FOR_TWELVE_HOURS}				$ 18.00
+	@{FOR_TWENTYFOUR_HOURS}			$ 18.00
+	@{FOR_ONE_DAY_ONE_MINUTE}		$ 36.00
+	@{FOR_THREE_DAYS}				$ 54.00
+	@{FOR_ONE_WEEK}					$ 126.00
+	
+*** Settings ***
+Documentation  Valet parking tests for ParkCalc
+
+Resource  parkcalc.txt
+
+Suite Setup  Open Park Calc
+Suite Teardown  Close All Browsers

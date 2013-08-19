@@ -1,0 +1,23 @@
+*** Test Cases ***
+Long-Term Surface Parking  [Template]  Long-Term Surface Parking
+	@{FOR_THIRTY_MINUTES}				$ 2.00
+	@{FOR_ONE_HOUR}						$ 2.00
+	@{FOR_FIVE_HOURS}					$ 10.00
+	@{FOR_SIX_HOURS}					$ 10.00
+	@{FOR_TWENTYFOUR_HOURS}				$ 10.00
+	@{FOR_ONE_DAY_ONE_HOUR}				$ 12.00
+	@{FOR_ONE_DAY_THREE_HOURS}			$ 16.00
+	@{FOR_ONE_DAY_SIX_HOURS}			$ 20.00
+	@{FOR_SIX_DAYS}						$ 60.00
+	@{FOR_SIX_DAYS_ONE_HOUR}			$ 60.00
+	@{FOR_SEVEN_DAYS}					$ 60.00
+	@{FOR_ONE_WEEK_TWO_DAYS}			$ 80.00
+	@{FOR_THREE_WEEKS}					$ 180.00
+	
+*** Settings ***
+Documentation  Long-term surface parking tests for ParkCalc
+
+Resource  parkcalc.txt
+
+Suite Setup  Open Park Calc
+Suite Teardown  Close All Browsers

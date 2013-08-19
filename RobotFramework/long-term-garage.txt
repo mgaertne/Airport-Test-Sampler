@@ -1,0 +1,24 @@
+*** Test Cases ***
+Long-Term Garage Parking  [Template]  Long-Term Garage Parking
+	@{FOR_THIRTY_MINUTES}				$ 2.00
+	@{FOR_ONE_HOUR}						$ 2.00
+	@{FOR_THREE_HOURS}					$ 6.00
+	@{FOR_SIX_HOURS}					$ 12.00
+	@{FOR_SEVEN_HOURS}					$ 12.00
+	@{FOR_TWENTYFOUR_HOURS}				$ 12.00
+	@{FOR_ONE_DAY_ONE_HOUR}				$ 14.00
+	@{FOR_ONE_DAY_THREE_HOURS}			$ 18.00
+	@{FOR_ONE_DAY_SEVEN_HOURS}			$ 24.00
+	@{FOR_SIX_DAYS}						$ 72.00
+	@{FOR_SIX_DAYS_ONE_HOUR}			$ 72.00
+	@{FOR_SEVEN_DAYS}					$ 72.00
+	@{FOR_ONE_WEEK_TWO_DAYS}			$ 96.00
+	@{FOR_THREE_WEEKS}					$ 216.00
+	
+*** Settings ***
+Documentation  Long-term garage parking tests for ParkCalc
+
+Resource  parkcalc.txt
+
+Suite Setup  Open Park Calc
+Suite Teardown  Close All Browsers

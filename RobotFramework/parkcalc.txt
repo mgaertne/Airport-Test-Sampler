@@ -1,0 +1,59 @@
+*** Settings ***
+Documentation	Resources for ParkCalc testing
+
+Resource		parking_durations.txt
+
+Library			Selenium2Library
+
+*** Variables ***
+${BROWSER}  firefox
+${URL}      http://www.shino.de/parkcalc
+${PARKINGLOT_IDENTIFIED}  ParkingLot
+${COST_ITEM}     xpath=//tr[td/div[@class='SubHead'] = 'estimated Parking costs']/td/span/b
+
+*** Keywords ***
+Open Park Calc
+	Open Browser  ${URL}  ${BROWSER}
+
+Select Parking Lot  [Arguments]  ${parkingLot}
+	Select From List  ${PARKINGLOT_IDENTIFIED}  ${parkingLot}
+	
+Enter Starting Date  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}
+	Input Text  StartingDate  ${startingDate}
+	Input Text  StartingTime  ${startingTime}
+	Select Radio Button  StartingTimeAMPM  ${startingAmPm}
+	
+Enter End Date  [Arguments]  ${endingDate}  ${endingTime}  ${endingAmPm}
+	Input Text  LeavingDate  ${endingDate}
+	Input Text  LeavingTime  ${endingTime}
+	Select Radio Button  LeavingTimeAMPM  ${endingAmPm}
+
+Calculate Parking Costs
+	Click Button  Calculate
+
+Calculated Costs Should Be  [Arguments]  ${expectedPrice}
+	${actualPrice} =  Get Text  ${COST_ITEM}
+	Should Be Equal  ${actualPrice}  ${expectedPrice}  Actual price does not match expected price
+
+Park Calc  [Arguments]  ${parkingLot}  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Select Parking Lot  ${parkingLot}
+	Enter Starting Date  ${startingDate}  ${startingTime}  ${startingAmPm}
+	Enter End Date  ${endingDate}  ${endingTime}  ${endingAmPm}
+	Calculate Parking Costs
+	Calculated Costs Should Be  ${expectedPrice}
+
+Valet Parking  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Park Calc  Valet Parking  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+
+Short-Term Parking  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Park Calc  Short-Term Parking  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+
+Long-Term Surface Parking  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Park Calc  Long-Term Surface Parking  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+
+Long-Term Garage Parking  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Park Calc  Long-Term Garage Parking  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+
+Economy Parking  [Arguments]  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+	Park Calc  Economy Parking  ${startingDate}  ${startingTime}  ${startingAmPm}  ${endingDate}  ${endingTime}  ${endingAmPm}  ${expectedPrice}
+
