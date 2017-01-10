@@ -61,5 +61,6 @@
 	<classpathentry kind="lib" path="lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="lib/fitnesse-20161106-standalone.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
