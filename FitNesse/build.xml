@@ -22,7 +22,7 @@
 	</target>
 
 	<target name="acceptance_tests_xml" depends="compile">
-		<java jar="lib/fitnesse-standalone-20121220.jar" failonerror="true" fork="true" output="fitnesse-results.xml">
+		<java jar="lib/fitnesse-20161106-standalone.jar" failonerror="true" fork="true" output="fitnesse-results.xml">
 			<arg value="-c" />
 			<arg value="ParkCalcSuite?suite&amp;format=xml" />
 			<arg value="-p" />
@@ -31,7 +31,7 @@
 	</target>
 
 	<target name="acceptance_tests" depends="compile">
-		<java jar="lib/fitnesse-standalone-20121220.jar" failonerror="true" fork="true">
+		<java jar="lib/fitnesse-20161106-standalone.jar" failonerror="true" fork="true">
 			<arg value="-c" />
 			<arg value="ParkCalcSuite?suite&amp;format=text" />
 			<arg value="-p" />
@@ -53,7 +53,7 @@
 
 	<target name="clean-deps" description="Delete all dependencies">
 		<delete>
-			<fileset dir="${basedir}/lib" includes="*.jar" />
+			<fileset dir="${basedir}/lib" includes="*.jar" excludes="fitnesse-20161106-standalone.jar" />
 		</delete>
 	</target>
 
