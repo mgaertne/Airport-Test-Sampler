@@ -3,31 +3,21 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=FitNesse&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/ant-1.9.6.jar"/>
-	<classpathentry kind="lib" path="lib/ant-launcher-1.9.6.jar"/>
 	<classpathentry kind="lib" path="lib/cglib-nodep-3.2.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-compress-1.9.jar"/>
 	<classpathentry kind="lib" path="lib/commons-exec-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.5.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/config-1.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/cssparser-0.9.20.jar"/>
-	<classpathentry kind="lib" path="lib/diffutils-1.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/fitnesse-20161106-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/fitnesse-20161106-sources.jar"/>
-	<classpathentry kind="lib" path="lib/fitnesse-20161106.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/guava-19.0.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-junit-2.0.0.0-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-junit-2.0.0.0-sources.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-junit-2.0.0.0.jar"/>
-	<classpathentry kind="lib" path="lib/htmllexer-2.1.jar"/>
-	<classpathentry kind="lib" path="lib/htmlparser-2.1.jar"/>
 	<classpathentry kind="lib" path="lib/htmlunit-2.23.jar"/>
 	<classpathentry kind="lib" path="lib/htmlunit-core-js-2.23.jar"/>
 	<classpathentry kind="lib" path="lib/httpclient-4.5.2.jar"/>
@@ -41,7 +31,6 @@
 	<classpathentry kind="lib" path="lib/jetty-util-9.2.15.v20160210.jar"/>
 	<classpathentry kind="lib" path="lib/jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jna-platform-4.1.0.jar"/>
-	<classpathentry kind="lib" path="lib/json-20151123.jar"/>
 	<classpathentry kind="lib" path="lib/jsoup-1.9.2.jar"/>
 	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="lib/neko-htmlunit-2.23.jar"/>
@@ -63,7 +52,6 @@
 	<classpathentry kind="lib" path="lib/serializer-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.12.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-simple-1.7.12.jar"/>
-	<classpathentry kind="lib" path="lib/velocity-1.7.jar"/>
 	<classpathentry kind="lib" path="lib/webdrivermanager-1.5.0-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/webdrivermanager-1.5.0-sources.jar"/>
 	<classpathentry kind="lib" path="lib/webdrivermanager-1.5.0.jar"/>
